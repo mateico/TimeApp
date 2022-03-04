@@ -1,6 +1,6 @@
-package com.example.myapplicationtestlearning.ui.main.model.remote
+package com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto
 
-data class GBP(
+data class USD(
     val code: String,
     val description: String,
     val rate: String,

@@ -1,6 +1,6 @@
-package com.example.myapplicationtestlearning.ui.main
+package com.example.myapplicationtestlearning
 
-import com.example.myapplicationtestlearning.ui.main.model.remote.ResponseNetworkDTO
+import com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto.ResponseNetworkDTO
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
