@@ -1,4 +1,4 @@
-package com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto
+package com.example.myapplicationtestlearning.feature_coindesk.domain.model
 
 data class Time(
     val updated: String,

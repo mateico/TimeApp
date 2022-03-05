@@ -1,7 +1,7 @@
 package com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto
 
-data class Bpi(
-    val EUR: EUR,
-    val GBP: GBP,
-    val USD: USD
+data class BpiDTO(
+    val EUR: EurDTO,
+    val GBP: GbpDTO,
+    val USD: UsdDTO
 )

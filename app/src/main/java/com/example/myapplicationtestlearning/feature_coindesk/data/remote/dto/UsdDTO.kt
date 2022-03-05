@@ -1,6 +1,6 @@
 package com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto
 
-data class EUR(
+data class UsdDTO(
     val code: String,
     val description: String,
     val rate: String,
