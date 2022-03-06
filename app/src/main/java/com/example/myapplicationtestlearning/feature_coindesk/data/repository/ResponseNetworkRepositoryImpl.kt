@@ -15,7 +15,7 @@ class ResponseNetworkRepositoryImpl(
     private val dao: ResponseNetworkDao
 ): ResponseNetworkRepository {
 
-    override fun getResponseNetwork(response: String): Flow<Resource<ResponseNetwork>> = flow {
+    override fun getResponseNetwork(): Flow<Resource<ResponseNetwork>> = flow {
         emit(Resource.Loading())
 
         val responseNetwork = dao.getResponseNetwork().toResponseNetwork()

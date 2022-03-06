@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ResponseNetworkRepository {
 
-    fun getResponseNetwork(response: String): Flow<Resource<ResponseNetwork>>
+    fun getResponseNetwork(): Flow<Resource<ResponseNetwork>>
 }
