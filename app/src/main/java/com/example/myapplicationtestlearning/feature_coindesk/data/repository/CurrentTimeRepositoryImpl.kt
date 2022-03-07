@@ -18,7 +18,7 @@ class CurrentTimeRepositoryImpl(
     override fun getCurrentTime(): Flow<Resource<CurrentTime>> = flow {
         emit(Resource.Loading())
 
-        val currentTime = if(dao.getCurrentTime() != null) dao.getCurrentTime().toCurrentTime() else CurrentTime("", "")
+        val currentTime = if(dao.getCurrentTime() != null) dao.getCurrentTime().toCurrentTime() else CurrentTime()
         emit(Resource.Loading(data = currentTime))
 
         try {

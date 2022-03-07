@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.CurrentTime
-import com.example.myapplicationtestlearning.feature_coindesk.domain.use_case.GetCurrentTime
+import com.example.myapplicationtestlearning.feature_coindesk.domain.use_case.GetCurrentTimeUseCase
 import com.example.myapplicationtestlearning.core.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CurrentTimeViewModel @Inject constructor(
-    private val getCurrentTime: GetCurrentTime
+    private val getCurrentTimeUseCase: GetCurrentTimeUseCase
 ): ViewModel() {
 
     private val _state = mutableStateOf(CurrentTimeState())
@@ -27,24 +27,24 @@ class CurrentTimeViewModel @Inject constructor(
     fun onGetCurrentTime(){
         job?.cancel()
         job = viewModelScope.launch {
-            getCurrentTime()
+            getCurrentTimeUseCase()
                 .onEach { result ->
                     when (result) {
                         is Resource.Success -> {
                             _state.value = state.value.copy(
-                                currentTime = result.data ?: CurrentTime("", ""),
+                                currentTime = result.data ?: CurrentTime(),
                                 isLoading = false
                             )
                         }
                         is Resource.Error -> {
                             _state.value = state.value.copy(
-                                currentTime = result.data ?: CurrentTime("", ""),
+                                currentTime = result.data ?: CurrentTime(),
                                 isLoading = false
                             )
                         }
                         is Resource.Loading -> {
                             _state.value = state.value.copy(
-                                currentTime = result.data ?: CurrentTime("", ""),
+                                currentTime = result.data ?: CurrentTime(),
                                 isLoading = true
                             )
                         }

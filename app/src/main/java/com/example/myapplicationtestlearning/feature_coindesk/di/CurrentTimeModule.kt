@@ -6,7 +6,7 @@ import com.example.myapplicationtestlearning.feature_coindesk.data.local.Current
 import com.example.myapplicationtestlearning.feature_coindesk.data.remote.TimeApi
 import com.example.myapplicationtestlearning.feature_coindesk.data.repository.CurrentTimeRepositoryImpl
 import com.example.myapplicationtestlearning.feature_coindesk.domain.repository.CurrentTimeRepository
-import com.example.myapplicationtestlearning.feature_coindesk.domain.use_case.GetCurrentTime
+import com.example.myapplicationtestlearning.feature_coindesk.domain.use_case.GetCurrentTimeUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,8 +21,8 @@ object CurrentTimeModule {
 
     @Provides
     @Singleton
-    fun provideGetCurrentTimeUseCase(repository: CurrentTimeRepository): GetCurrentTime {
-        return GetCurrentTime(repository)
+    fun provideGetCurrentTimeUseCase(repository: CurrentTimeRepository): GetCurrentTimeUseCase {
+        return GetCurrentTimeUseCase(repository)
     }
 
     @Provides
