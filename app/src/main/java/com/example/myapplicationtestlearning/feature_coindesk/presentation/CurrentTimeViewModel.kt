@@ -1,4 +1,4 @@
-package com.example.myapplicationtestlearning.feature_coindesk.domain.presentation
+package com.example.myapplicationtestlearning.feature_coindesk.presentation
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.CurrentTime
 import com.example.myapplicationtestlearning.feature_coindesk.domain.use_case.GetCurrentTime
-import com.example.myapplicationtestlearning.util.Resource
+import com.example.myapplicationtestlearning.core.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn

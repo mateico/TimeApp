@@ -2,7 +2,7 @@ package com.example.myapplicationtestlearning.feature_coindesk.domain.use_case
 
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.CurrentTime
 import com.example.myapplicationtestlearning.feature_coindesk.domain.repository.CurrentTimeRepository
-import com.example.myapplicationtestlearning.util.Resource
+import com.example.myapplicationtestlearning.core.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 class GetCurrentTime(

@@ -12,7 +12,7 @@ import androidx.compose.material.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.myapplicationtestlearning.feature_coindesk.domain.presentation.CurrentTimeViewModel
+import com.example.myapplicationtestlearning.feature_coindesk.presentation.CurrentTimeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

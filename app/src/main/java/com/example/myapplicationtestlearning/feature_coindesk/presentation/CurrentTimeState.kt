@@ -1,4 +1,4 @@
-package com.example.myapplicationtestlearning.feature_coindesk.domain.presentation
+package com.example.myapplicationtestlearning.feature_coindesk.presentation
 
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.CurrentTime
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.Time

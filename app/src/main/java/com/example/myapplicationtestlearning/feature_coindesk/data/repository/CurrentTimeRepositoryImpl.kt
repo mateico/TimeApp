@@ -3,9 +3,8 @@ package com.example.myapplicationtestlearning.feature_coindesk.data.repository
 import com.example.myapplicationtestlearning.feature_coindesk.data.local.CurrentTimeDao
 import com.example.myapplicationtestlearning.feature_coindesk.data.remote.TimeApi
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.CurrentTime
-import com.example.myapplicationtestlearning.feature_coindesk.domain.model.Time
 import com.example.myapplicationtestlearning.feature_coindesk.domain.repository.CurrentTimeRepository
-import com.example.myapplicationtestlearning.util.Resource
+import com.example.myapplicationtestlearning.core.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -27,7 +26,8 @@ class CurrentTimeRepositoryImpl(
             dao.deleteCurrentTime()
             dao.insertCurrentTime(remoteCurrentTime.toCurrentTimeEntity())
         } catch (e: HttpException) {
-            emit(Resource.Error(
+            emit(
+                Resource.Error(
                 message = "Oops, something went wrong!",
                 data = currentTime
             ))
