@@ -3,6 +3,7 @@ package com.example.myapplicationtestlearning.feature_coindesk.data.repository
 import com.example.myapplicationtestlearning.feature_coindesk.data.local.ResponseNetworkDao
 import com.example.myapplicationtestlearning.feature_coindesk.data.remote.CoinDeskApi
 import com.example.myapplicationtestlearning.feature_coindesk.domain.model.ResponseNetwork
+import com.example.myapplicationtestlearning.feature_coindesk.domain.model.Time
 import com.example.myapplicationtestlearning.feature_coindesk.domain.repository.ResponseNetworkRepository
 import com.example.myapplicationtestlearning.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +19,7 @@ class ResponseNetworkRepositoryImpl(
     override fun getResponseNetwork(): Flow<Resource<ResponseNetwork>> = flow {
         emit(Resource.Loading())
 
-        val responseNetwork = dao.getResponseNetwork().toResponseNetwork()
+        val responseNetwork = if(dao.getResponseNetwork() != null) dao.getResponseNetwork().toResponseNetwork() else ResponseNetwork("", "", Time("", "", ""))
         emit(Resource.Loading(data = responseNetwork))
 
         try {
