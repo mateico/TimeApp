@@ -1,25 +1,24 @@
 package com.example.myapplicationtestlearning.feature_coindesk.data.remote
 
-import com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto.ResponseNetworkDTO
-import retrofit2.Call
+import com.example.myapplicationtestlearning.feature_coindesk.data.remote.dto.CurrentTimeDTO
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-interface CoinDeskApi {
+interface TimeApi {
 
-    @GET("bpi/currentprice.json")
-    suspend fun getCurrentPrice() : ResponseNetworkDTO
+    @GET("Time/current/zone?timeZone=Europe/Amsterdam")
+    suspend fun getCurrentTime() : CurrentTimeDTO
 
     companion object{
-        var BASE_URL = "https://api.coindesk.com/v1/"
+        var BASE_URL = "https://www.timeapi.io/api/"
 
-        fun create() : CoinDeskApi {
+        fun create() : TimeApi {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .build()
-            return retrofit.create(CoinDeskApi::class.java)
+            return retrofit.create(TimeApi::class.java)
         }
     }
 
