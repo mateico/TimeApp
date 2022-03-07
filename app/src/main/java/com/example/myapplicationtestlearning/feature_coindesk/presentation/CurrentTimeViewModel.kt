@@ -42,7 +42,7 @@ class CurrentTimeViewModel @Inject constructor(
                                 isLoading = false
                             )
                         }
-                        is Resource.Error -> {
+                        is Resource.Loading -> {
                             _state.value = state.value.copy(
                                 currentTime = result.data ?: CurrentTime("", ""),
                                 isLoading = true

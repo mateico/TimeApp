@@ -4,11 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -32,29 +33,34 @@ class MainActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .background(MaterialTheme.colors.background)
-                ) {
-
-                }
-                Column(
-                    modifier = Modifier
                         .fillMaxSize()
-                        .padding(16.dp)
                 ) {
 
-                    Text(text = viewModel.state.value.currentTime.dateTime)
-                    Button(
-                        modifier=Modifier
+                    Text(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = viewModel.state.value.currentTime.dateTime
+                    )
 
-                            .padding(all=0.dp),
-                        onClick = {
-                            viewModel.onGetCurrentTime()
-                        },content={
-                            Text(
-                                text = "Click Me")
-                        })
+                    FloatingActionButton(
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(16.dp),
+                        onClick = { viewModel.onGetCurrentTime() },
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Refresh,
+                            contentDescription = "Get current time"
+                        )
+                    }
+                    if (state.isLoading) {
+                        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                    }
                 }
+
             }
 
         }
     }
+
+
 }
